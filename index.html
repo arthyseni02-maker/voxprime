@@ -828,7 +828,7 @@
             <div class="contact-icon">📧</div>
             <div class="contact-info">
               <strong>EMAIL</strong>
-              <span>contact@voxprimesupport.com</span>
+              <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6a5a9a8b2a7a5b286b0a9beb6b4afaba3b5b3b6b6a9b4b2e8a5a9ab">[email&#160;protected]</a></span>
             </div>
           </div>
           <div class="contact-item">
@@ -881,7 +881,7 @@
             <label>Tell Us About Your Needs</label>
             <textarea placeholder="What kind of support do you need? Any specific requirements?"></textarea>
           </div>
-          <button class="form-submit" onclick="handleSubmit(event)">Send Message & Get a Quote →</button>
+          <button class="form-submit" id="submitBtn" onclick="handleSubmit(event)">Send Message & Get a Quote →</button>
           <div class="form-success" id="formSuccess">✅ Message sent! We'll be in touch within 24 hours.</div>
         </div>
       </div>
@@ -897,7 +897,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -916,10 +916,33 @@
     const btn = e.target;
     btn.textContent = 'Sending...';
     btn.disabled = true;
-    setTimeout(() => {
-      btn.style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    }, 1200);
+
+    const form = btn.closest('.contact-form');
+    const data = {
+      firstName: form.querySelectorAll('input[type="text"]')[0].value,
+      lastName: form.querySelectorAll('input[type="text"]')[1].value,
+      email: form.querySelector('input[type="email"]').value,
+      company: form.querySelectorAll('input[type="text"]')[2].value,
+      volume: form.querySelector('select').value,
+      message: form.querySelector('textarea').value,
+    };
+
+    fetch('https://formspree.io/f/xjgpgyap', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(response) {
+      if (response.ok) {
+        btn.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Something went wrong. Try again.';
+        btn.disabled = false;
+      }
+    }).catch(function() {
+      btn.textContent = 'Something went wrong. Try again.';
+      btn.disabled = false;
+    });
   }
 </script>
 </body>
