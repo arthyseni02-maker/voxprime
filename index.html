@@ -9,15 +9,15 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #0B1F3A;
-    --navy-mid: #132844;
+    --navy: #080F1A;
+    --navy-mid: #0D1826;
     --blue: #1A56DB;
     --blue-light: #3B82F6;
-    --sky: #EBF3FF;
+    --sky: #111E30;
     --white: #FFFFFF;
-    --gray: #64748B;
-    --gray-light: #F1F5F9;
-    --text: #1E293B;
+    --gray: #94A3B8;
+    --gray-light: #0D1826;
+    --text: #E2E8F0;
     --accent: #00C4CC;
   }
 
@@ -26,7 +26,7 @@
   body {
     font-family: 'DM Sans', sans-serif;
     color: var(--text);
-    background: var(--white);
+    background: var(--navy);
     overflow-x: hidden;
   }
 
@@ -270,7 +270,7 @@
     font-family: 'Syne', sans-serif;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 800; line-height: 1.15;
-    color: var(--navy); letter-spacing: -0.5px;
+    color: var(--white); letter-spacing: -0.5px;
     margin-bottom: 1rem;
   }
 
@@ -280,7 +280,7 @@
   }
 
   /* SERVICES */
-  #services { background: var(--gray-light); }
+  #services { background: #0A1525; }
 
   .services-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -288,8 +288,8 @@
   }
 
   .service-card {
-    background: var(--white); border-radius: 12px;
-    padding: 2rem; border: 1px solid #E2EAF4;
+    background: #0D1826; border-radius: 12px;
+    padding: 2rem; border: 1px solid rgba(255,255,255,0.08);
     transition: all 0.3s; position: relative; overflow: hidden;
   }
 
@@ -305,14 +305,14 @@
 
   .service-icon {
     width: 48px; height: 48px; border-radius: 10px;
-    background: var(--sky); display: flex; align-items: center; justify-content: center;
+    background: rgba(26,86,219,0.15); display: flex; align-items: center; justify-content: center;
     font-size: 1.3rem; margin-bottom: 1.25rem;
   }
 
   .service-name {
     font-family: 'Syne', sans-serif;
     font-size: 1.1rem; font-weight: 700;
-    color: var(--navy); margin-bottom: 0.75rem;
+    color: var(--white); margin-bottom: 0.75rem;
   }
 
   .service-desc { font-size: 0.9rem; line-height: 1.7; color: var(--gray); font-weight: 300; }
@@ -332,7 +332,7 @@
     transition: all 0.25s;
   }
 
-  .why-item:hover { background: var(--sky); border-color: #BFDBFE; }
+  .why-item:hover { background: rgba(26,86,219,0.12); border-color: rgba(26,86,219,0.3); }
 
   .why-num {
     width: 36px; height: 36px; border-radius: 8px;
@@ -344,7 +344,7 @@
 
   .why-text strong {
     display: block; font-size: 0.95rem; font-weight: 600;
-    color: var(--navy); margin-bottom: 0.25rem;
+    color: var(--white); margin-bottom: 0.25rem;
   }
 
   .why-text p { font-size: 0.875rem; color: var(--gray); font-weight: 300; line-height: 1.6; }
@@ -388,7 +388,7 @@
   }
 
   /* PRICING */
-  #pricing { background: var(--gray-light); }
+  #pricing { background: #0A1525; }
 
   .pricing-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -396,8 +396,8 @@
   }
 
   .pricing-card {
-    background: var(--white); border-radius: 14px;
-    padding: 2.5rem; border: 1px solid #E2EAF4;
+    background: #0D1826; border-radius: 14px;
+    padding: 2.5rem; border: 1px solid rgba(255,255,255,0.08);
     position: relative; transition: all 0.3s;
   }
 
@@ -418,13 +418,13 @@
 
   .pricing-name {
     font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
-    color: var(--navy); margin-bottom: 0.5rem;
+    color: var(--white); margin-bottom: 0.5rem;
   }
   .pricing-card.featured .pricing-name { color: rgba(255,255,255,0.7); }
 
   .pricing-price {
     font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800;
-    color: var(--navy); line-height: 1; margin-bottom: 0.3rem;
+    color: var(--white); line-height: 1; margin-bottom: 0.3rem;
   }
   .pricing-card.featured .pricing-price { color: var(--white); }
 
@@ -433,13 +433,13 @@
   .pricing-card.featured .pricing-period { color: rgba(255,255,255,0.5); }
 
   .pricing-divider {
-    border: none; border-top: 1px solid #E2EAF4; margin: 1.5rem 0;
+    border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;
   }
   .pricing-card.featured .pricing-divider { border-color: rgba(255,255,255,0.1); }
 
   .pricing-feature {
     display: flex; gap: 0.75rem; align-items: flex-start;
-    margin-bottom: 0.85rem; font-size: 0.88rem; color: var(--text); font-weight: 300;
+    margin-bottom: 0.85rem; font-size: 0.88rem; color: var(--gray); font-weight: 300;
   }
   .pricing-card.featured .pricing-feature { color: rgba(255,255,255,0.75); }
 
@@ -450,7 +450,7 @@
     display: block; text-align: center; margin-top: 2rem;
     padding: 0.85rem; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
     text-decoration: none; transition: all 0.2s;
-    background: var(--sky); color: var(--navy); border: 1px solid #BFDBFE;
+    background: rgba(26,86,219,0.15); color: var(--white); border: 1px solid rgba(26,86,219,0.3);
   }
   .pricing-cta:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
   .pricing-card.featured .pricing-cta { background: var(--blue); color: var(--white); border-color: var(--blue); }
@@ -486,7 +486,7 @@
   .step-title {
     font-family: 'Syne', sans-serif;
     font-size: 1rem; font-weight: 700;
-    color: var(--navy); margin-bottom: 0.5rem;
+    color: var(--white); margin-bottom: 0.5rem;
   }
 
   .step-desc { font-size: 0.85rem; color: var(--gray); font-weight: 300; line-height: 1.65; }
